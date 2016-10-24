@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>闭包的分析</title>
+	<script type="text/javascript" src="js/jquery-2.1.4/jquery.min.js"></script>
+	<script type="text/javascript">
+	window.onload = function(){
+		for(var i=1;i<=3;i++){
+			setTimeout(function(){
+				console.log(i);
+			},1000);
+			//由于闭包的影响打印出i的值为 4 4 4 
+		}
+
+		//解决方法
+		for(var i=1;i<=3;i++){
+			setTimeout((function(){
+				console.log(i);
+			})(i),1000);	//改成立即执行函数
+		}
+		//现在打印出来的结果为1 2 3 
+	}
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

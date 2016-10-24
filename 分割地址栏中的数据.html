@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>分割地址栏中的数据</title>
+	<script>
+		function serilizeUrl(url) {
+		    var obj = {};
+		    url = url.split("?")[1];
+		    //此时url是一个数组，取到索引为1的项就是一个字符串了，
+		    console.log(url);
+		    //再次利用字符串分割的方法，参数为字符串中的匹配符号
+		    var map = url.split("&");
+		    console.log(map);
+		    //map: ["a=1", "b=2", "c=3", "d=xxx", "e"]
+		    for(var i=0; i<map.length; i++) {
+		    	var key = map[i].split("=")[0];
+		    	var val = map[i].split("=")[1];
+		        obj[key] = val;
+		    }
+		    return obj;
+		}
+		var result = serilizeUrl("http://item.taobao.com/item.htm?a=1&b=2&c=3&d=xxx&e");
+		console.log(result);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

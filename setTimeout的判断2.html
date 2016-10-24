@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>setTimeout的判断2</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var a = 123;
+			setTimeout(function(){
+				alert(a);		//后弹出undefined，因为变量提升不会把赋值也提升上去！！
+				var a = 456;
+			},500);
+		}
+		a = 789;
+		alert(a);	//先弹出789
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

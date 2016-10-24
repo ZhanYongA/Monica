@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>setTimeout的判断1</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var a = 123;
+			setTimeout(function(){
+				var a = 456;	//由于变量a是一个局部变量
+				alert(a);	//弹出456
+
+			},500);
+			
+			a = 789;
+			alert(a);	//先弹出全局变量a的值：789  再执行setTimeout里面的局部变量
+			// 因为var a = 456;定义了局部变量a，并且赋值为456，根据变量作用域链，
+			//全局变量处在作用域末端，优先访问了局部变量，从而覆盖了全局变量 。
+		}
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

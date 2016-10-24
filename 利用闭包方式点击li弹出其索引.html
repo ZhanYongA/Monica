@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>利用闭包方式点击li弹出其索引</title>
+	<script type="text/javascript">
+	window.onload = function(){
+		var lis = document.getElementsByTagName("li");
+		for(var i=0;i<lis.length;i++){
+			lis[i].onclick=(function(index){
+				return function(){
+					alert(index);
+				}
+			})(i);
+		}
+	}
+	//匿名函数调用方法：(function(){})();	
+	</script>
+</head>
+<body>
+<ul id=”test”>
+    <li>这是第一条</li>
+    <li>这是第二条</li>
+    <li>这是第三条</li>
+</ul>
+</body>
+</html>

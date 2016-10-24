@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>测试事件绑定与解绑-事件冒泡</title>
+	<style type="text/css">	
+		div{
+			border:1px solid gray;
+			text-align: center;
+			margin: 0 auto;
+		}
+		#outer{
+			width:300px;
+			height:300px;
+		}
+		#center{
+			width:200px;
+			height:200px;
+		}
+		#inner{
+			width:100px;
+			height:100px;
+		}
+	</style>
+	<script type="text/javascript" src="js/event.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			var outer = document.getElementById("outer");
+			var center = document.getElementById("center");
+			var inner = document.getElementById("inner");
+			var a = document.getElementsByTagName("a")[0];
+
+			function stopA(event){
+				EventUtil.preventDefault(event);
+			}
+
+			function handler(event){
+				alert(this.id);
+				//获取事件目标，这里点击的是什么就是什么
+				console.log(EventUtil.getTarget(event));
+
+				//获取事件对象
+				console.log(EventUtil.getEvent(event));
+
+				//阻止事件冒泡
+				//EventUtil.stopPropagation(event);
+			}			
+
+			//事件绑定
+			EventUtil.bind(inner,"click",handler);
+			EventUtil.bind(center,"click",handler);
+			EventUtil.bind(outer,"click",handler);
+
+			//给a标签绑定事件
+			EventUtil.bind(a,"click",stopA);
+
+
+			//事件解绑
+			//EventUtil.unbind(center,"click",handler);	//解绑成功
+			
+
+		};
+	</script>	
+</head>
+<body>
+	<div id="outer">
+		outer
+		<div id="center">
+			center
+			<div id="inner">
+				inner
+			</div>
+		</div>
+	</div>
+	<a href="www.baidu.com">百度一下</a>
+</body>
+</html>

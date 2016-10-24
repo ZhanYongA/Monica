@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>JS原型链继承</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			//创建父母构造函数
+			function Parent(name,money){
+				this.name = name;
+				this.money = money;
+			}
+			Parent.prototype = {
+				constructor:Parent,
+				info:function(){
+					alert("姓名："+this.name+"钱："+this.money);
+				},
+				buy:function(){
+					alert("I can buy everything!");
+				}
+			}
+			//创建孩子构造函数
+			function Children(name,money){
+				//借用构造函数继承属性姓名、年龄，不要钱
+				Parent.call(this,name,money);
+			}
+			//原型链继承
+			Children.prototype = new Parent();
+			Children.prototype.constructor = Children;
+
+			//如果要写孩子本身的方法必须写在原型链继承的后面
+			var person = new Parent("张三",2000000);
+			var child = new Children("小明",1000);
+			console.log(person);
+			console.log(child);
+			person.info();
+			child.info();
+
+			//person.buy();
+			child.buy();	//继承了父母的方法，所以也是可以调用成功
+		};
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

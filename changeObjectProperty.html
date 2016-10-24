@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>changeObjectProperty</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			 function changeObjectProperty(obj) {
+			    obj.siteUrl = "http://www.csser.com/";
+			    obj = new Object();
+			    obj.siteUrl = "http://www.popcg.com/";
+			}
+
+			var JavaScript = new Object();
+			changeObjectProperty(JavaScript);
+			console.log(JavaScript.siteUrl);  //” http://www.csser.com/”
+			//思考
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

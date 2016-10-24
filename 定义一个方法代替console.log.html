@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>定义一个方法代替console.log</title>
+	<script type="text/javascript">
+	window.onload = function(){
+		function mgLog(msg){
+		    console.log(msg);
+		}
+		mgLog("hello world!");
+
+		//如果是多个参数就用.apply调用，参数为arguments
+		function mgLog() {
+		    console.log.apply(console,arguments);
+		};
+		mgLog("hello world!","javascript");
+
+	}	
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

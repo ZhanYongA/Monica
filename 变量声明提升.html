@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>变量声明提升</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var a = 1;
+			function showA(){
+				//一旦函数内部重新定义同一个变量之后是不能再访问的，显示undefined，要访问必须在重新定义的变量之后访问
+				console.log(a);	
+				var a = 2;
+				console.log(a);
+			}
+			showA();	//结果为undefined	2
+
+			//上面的函数相当于下面的函数
+			var a = 1 ;
+			function showAA(){
+				var a;
+				console.log(a);
+				var a = 2;
+				console.log(a);
+			}
+			showAA();	//结果为undefined	2
+			
+			/*
+			总结：函数声明与变量声明会被JavaScript引擎隐式地提升到当前作用域的顶部，但是只提升名称不会提升赋值部分。*/
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

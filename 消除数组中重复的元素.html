@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>消除数组中重复的元素</title>
+	<script type="text/javascript">
+	window.onload = function(){
+		var arr = [1, 2, 3, 3, 4, 4, 5, 5, 6, 1, 9, 3, 25, 4];
+		function deRepeat(){
+			var newArr = [];
+			var obj = {};
+			var index = 0;
+			for(var i = 0 ;i<arr.length;i++){
+				if(obj[arr[i]]==undefined){
+					obj[arr[i]] = 1;
+					newArr[index++] = arr[i];
+				} else if(obj[arr[i]]==1){
+					continue ;
+				}
+  			}
+  			return newArr;
+		}
+		var result = deRepeat(arr);
+		console.log(result);
+		//思考
+	}	
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

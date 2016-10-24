@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>清除字符换前后的空格</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			if(!String.prototype.trim){
+				String.prototype.trim = function(){
+					return this.replace(/^\s+/,"").replace(/\s+$/,"");
+				}
+			}
+			var str = " \t\n test string function ".trim();
+			alert(str == "test string function");	//结果为true，说明把字符串前后的空格清除了
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

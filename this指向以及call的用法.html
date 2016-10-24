@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>this指向以及call的用法</title>
+	<script type="text/javascript">
+	//写了window.onload
+		window.onload = function(){
+			window.color = "red";
+			var color = "white";
+			var obj = { 
+				color:"blue"
+			};
+			function sayColor(){
+				alert(this.color);
+			}
+			sayColor();		
+			//red
+			sayColor.call(this);	//red this指向的是window对象
+			sayColor.call(window);	//red
+			sayColor.call(obj);		//blue
+		}
+
+		/*总结：
+			1、如果写了window.onload=function{},直接调用方法就是访问的window.color = "red";属性，例如window.color = "red";	sayColor();弹出结果为"red"。
+
+			2、如果 没有 写window.onload=function{},直接调用方法就是访问的var color = "white";属性，例如var color = "white";	sayColor();弹出结果为"white"。
+
+			3、如果写了window.onload但是没有写window.color = "red";但是写了var color = "white";那么直接调用方法访问的到的是undefined！！！
+		*/
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

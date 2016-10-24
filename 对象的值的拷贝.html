@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>对象的值的拷贝</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var a = new Object();
+			a.value = 1;
+			b = a;
+			b.value = 2;
+			alert(a.value);	//2
+			//将a对象的内存地址拷贝给b，
+			//所以a对象中数据在b对象改变的时候a对象也会随着改变
+		};
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

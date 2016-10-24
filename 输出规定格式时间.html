@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>输出规定时间格式</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var date = new Date();
+			//获取年份，getFullYear返回4位的数字
+			var year = date.getFullYear();
+			//获取月，月份比较特殊，0是1月，11是12月
+			var month = date.getMonth()+1;
+			//变成两位，如果当前月份小于10就在前面拼接0
+			month = month<10?"0"+month:month;
+			var day = date.getDate();
+			day = day<10?"0"+day:day
+			console.log(year+"-"+month+"-"+day);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>加法减法与字符串拼接的区分</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			console.log("12"+3);
+			console.log(typeof ("12"+3));	//string类型
+		//总结1、一个字符串与一个数值类型相加结果都为字符串拼接，结果为123
+			console.log("12"-3-"4");
+			console.log(typeof ("12"-3-"4"));
+		//总结2、一个字符串与一个数值类型相减结果都为数值相减，结果为5
+			var foo = "12"+3-"4";
+			console.log(foo);	//结果为119，先做字符串的拼接，后做减法运算
+			console.log(typeof foo);	//number
+
+		};
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
